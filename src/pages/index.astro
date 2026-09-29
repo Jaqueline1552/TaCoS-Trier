@@ -1,17 +1,172 @@
 ---
-
+import '../styles/global.css'
+import Layout from '../layout/layout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+    <div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
+    <h1 class="text-center">TaCoS Conference</h1>
+    <h2 class="text-center" style='font-family: "Crimson Text", serif;'>
+    June 03rd - 05th, 2027
+    <br> 
+    Trier University
+    </h2>
+    <br> 
+    <img src="/images/UT.jpg" 
+       alt="TaCoS 2027 Logo"
+       class="h-58 w-auto mx-auto"/> 
+    <br> <br>
+
+    <div>
+        <div class="flex items-start justify-center w-full gap-1.5 count-down-main">
+                        
+        <div class="timer">
+        <div
+        class="rounded-xl bg-[#ffeda8] backdrop-blur-xs py-7 min-w-35 flex items-center justify-center flex-col gap-1 px-3">
+        <h3
+        class="countdown-element days font-semibold text-2xl text-center">
+        </h3>
+        <p class="text-lg uppercase font-normal mt-1 text-center w-full">days</p>
+        </div>
+        </div>
+                            
+        <div class="timer">
+        <div
+        class="rounded-xl bg-[#ffeda8] backdrop-blur-xs py-7 min-w-35 flex items-center justify-center flex-col gap-1 px-3">
+        <h3
+        class="countdown-element hours font-semibold text-2xl text-center">
+        </h3>
+        <p class="text-lg uppercase font-normal mt-1 text-center w-full">hours</p>
+        </div>
+        </div>
+                            
+        <div class="timer">
+        <div
+        class="rounded-xl bg-[#ffeda8] backdrop-blur-xs py-7 min-w-35 flex items-center justify-center flex-col gap-1 px-3">
+        <h3
+        class="countdown-element minutes font-semibold text-2xl text-center">
+        </h3>
+        <p class="text-lg fo font-normal uppercase mt-1 text-center w-full">minutes</p>
+        </div>
+        </div>
+                            
+        <div class="timer">
+        <div
+        class="rounded-xl bg-[#ffeda8] backdrop-blur-xs py-7 min-w-35 flex items-center justify-center flex-col gap-1 px-3">
+        <h3
+        class="countdown-element seconds font-semibold text-2xl text-center">
+        </h3>
+        <p class="text-lg fo font-normal uppercase mt-1 text-center w-full">seconds</p>
+        </div>
+        </div>
+        </div>
+    </div>
+    <br> <br>
+                    
+    <p class="text-center">We look forward to welcoming you to Trier from Thursday, June 03rd, 2027, to Saturday, June 05th, 2027, for the 36th Computational Linguistics Student Conference (“Tagung der Computerlinguistik-Studierenden”).</p>
+    <br>
+    <p class="text-center"> <a href="https://www.uni-trier.de/" class="underline">Trier University</a></p>
+    <br>
+    <br>
+    <h1 class="text-center">About TaCoS</h1>
+    <br>
+    <h3 class="text-center">What is the TaCoS?</h3>
+    <p class="text-center">The Tagung der Computerlinguistik-Studierenden (TaCoS) was first organized in 1992 and takes place once every year. It offers students of computational linguistics and adjacent fields a chance to exchange views during talks and workshops. The conference is hosted by teams of student volunteers at their university. Participants traditionally receive accommodation and breakfast in exchange for a small fee. At the center of the conference stand talks, workshops, and poster sessions; each given by students for students. Established academics from the host university are invited as keynote speakers as well. In addition, there is a social program for everyone to connect and network.
+    <br>
+    This year marks the 36. TaCoS and our team at Trier University in Trier is proud to host the event this spring! The talks are set to be held on campus from 03rd to 05th of June 2027. 
+    </p>
+    <br>
+    <p class="text-center"> <a href="https://linguistik.computer/" class="underline">Previous TaCoS</a></p>
+    <br>
+    <h3 class="text-center">Newsletter:</h3>
+    <p class="text-center">Subscribe here</p> <!-- Hier noch Tool/Sign Up Form einfügen -->
+    <br>
+    <section class="py-8 px-4 max-w-7xl mx-auto">
+    <div class="grid gap-8 md:grid-cols-3 mb-8">
+      <a href="/team" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Team</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/sponsors" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Sponsors</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/speakers" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Speakers</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/registration" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Registration</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/schedule" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Schedule</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/map" class="block mx-auto">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Map</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+      <a href="/contact" class="block mx-auto w-fit md:col-start-2">
+        <div class="bg-[#ffeda8] rounded-lg shadow overflow-hidden text-center w-80 h-80 mx-auto flex flex-col">
+          <h3 class="text-xl text-center font-bold text-gray-900 mb-2 mt-2">Contact</h3>
+          <img src="/images/logo.png" alt="Trier" class="w-full h-64 object-cover"/>
+        </div>
+      </a>
+    </div>
+  </section>
+  </div>
+</Layout>
+
+<script>
+  const dest = new Date("2027-06-03T08:00:00").getTime();
+
+  const daysElement = document.querySelector(".days");
+  const hoursElement = document.querySelector(".hours");
+  const minutesElement = document.querySelector(".minutes");
+  const secondsElement = document.querySelector(".seconds");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = dest - now;
+
+    if (diff <= 0) {
+      if (daysElement) daysElement.textContent = "00";
+      if (hoursElement) hoursElement.textContent = "00";
+      if (minutesElement) minutesElement.textContent = "00";
+      if (secondsElement) secondsElement.textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (diff % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (diff % (1000 * 60)) / 1000
+    );
+
+    if (daysElement) daysElement.textContent = String(days).padStart(2, "0");
+    if (hoursElement) hoursElement.textContent = String(hours).padStart(2, "0");
+    if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, "0");
+    if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
