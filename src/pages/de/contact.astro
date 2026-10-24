@@ -1,0 +1,17 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const aboutURL = getRelativeLocaleUrl("de", "contact");
+
+import '../../styles/global.css'
+import Layout from '../../layout/layout-de.astro'
+---
+
+<Layout>
+    <div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
+    <h1 class="text-center">Kontakt</h1>
+    <br>
+    <p class="text-center">Haben Sie Fragen, Anregungen oder möchten Sie uns unterstützen? Dann nehmen Sie gerne Kontakt mit uns auf!</p>
+    <p class="text-center">Schicken Sie uns einfach eine E-Mail an <a href="mailto:tacos@uni-trier.de" class="underline">tacos@uni-trier.de</a></p>
+    </div>
+</Layout>

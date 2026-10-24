@@ -1,0 +1,38 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const aboutURL = getRelativeLocaleUrl("de", "contact");
+
+import '../../styles/global.css'
+import Layout from '../../layout/layout-de.astro'
+---
+
+<Layout>
+    <div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
+    <h1 class="text-center">Karte</h1>
+    <br>
+    <p class="text-center">Hier finden Sie die Lagepläne des Campus der Universität Trier, damit Sie alle Veranstaltungsorte der TaCoS finden können.</p>
+    <br>
+    <p class="text-center">Die genauen Veranstaltungsorte für die einzelnen Programmpunkte entnehmen Sie bitte dem Zeitplan<br>TaCoS findet an folgenden Orten statt:<br>Campus: xy<br>Räume: xyz</p>
+    <br><br>
+    <h2 class="text-center">Campus 2</h2>
+    <ul role="list" class="flex flex-wrap justify-center gap-x-4 px-4 m-0 -mt-15">
+        <li>
+            <div class="flex flex-col items-center text-center">
+            <img src="https://www.uni-trier.de/fileadmin/organisation/Presse/Lageplaene/Lageplan202408_CampusII.svg" class="size-130"></div>
+            </li>
+        <li>
+        <div class="flex flex-col items-center text-center">
+            <img src="https://www.uni-trier.de/fileadmin/organisation/Presse/Lageplaene/Raumplan202405_UT_Gebaeude-FHHZK.svg" class="size-130"></div>
+        </li>
+    </ul>
+
+    <h2 class="text-center">Campus 1</h2>
+    <ul role="list" class="flex flex-wrap justify-center gap-x-4 px-4 m-0 -mt-15 -mb-30">
+        <li>
+            <div class="flex flex-col items-center text-center">
+            <img src="https://www.uni-trier.de/fileadmin/organisation/Presse/Lageplaene/Lageplan202408_CampusI.svg" class="size-130"></div>
+            </li>
+    </ul>
+    </div>
+</Layout>

@@ -3,6 +3,21 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 */
+
+const base = "/TaCoS-Trier";
+const path = Astro.url.pathname;
+
+const isGerman =
+  path === `${base}/de` ||
+  path.startsWith(`${base}/de/`);
+
+const englishPath = isGerman
+  ? path.replace(`${base}/de`, base)
+  : path;
+
+const germanPath = isGerman
+  ? path
+  : `${base}/de${path.slice(base.length)}`
 ---
 
 <nav class="bg-[#ffeda8] shadow antialiased md:static sticky top-0 z-50">
@@ -33,14 +48,50 @@ import { getCollection } from "astro:content";
       <li><a href="/TaCoS-Trier/schedule" class="nav-link">Schedule</a></li>
       <li><a href="/TaCoS-Trier/map" class="nav-link">Map</a></li>
       <li><a href="/TaCoS-Trier/contact" class="nav-link">Contact</a></li>
+      
+<li class="flex items-center gap-1 ml-2">
+  <a
+    href={germanPath}
+    lang="de"
+    aria-current={isGerman ? "page" : undefined}
+    class:list={[
+      "inline-flex items-center gap-1 rounded-md border px-2 py-1",
+      "text-sm transition-colors duration-200",
+      isGerman
+        ? "bg-white/80 border-gray-400/60 text-black"
+        : "border-transparent hover:border-gray-400/60 hover:bg-white/30"
+    ]}
+  >
+    <span>🇩🇪</span>
+    <span>DE</span>
+  </a>
+
+  <a
+    href={englishPath}
+    lang="en"
+    aria-current={!isGerman ? "page" : undefined}
+    class:list={[
+      "inline-flex items-center gap-1 rounded-md border px-2 py-1",
+      "text-sm transition-colors duration-200",
+      !isGerman
+        ? "bg-white/80 border-gray-400/60 text-black"
+        : "border-transparent hover:border-gray-400/60 hover:bg-white/30"
+    ]}
+  >
+    <span>🇬🇧</span>
+    <span>EN</span>
+  </a>
+</li>
+
     </ul>
+    
   </div>
+  
 </nav>
 
 <div id="mobile-menu" class="md:hidden hidden bg-[#ffeda8] px-4 pb-6">
   <ul class="flex flex-col gap-2">
       <li><a href="/TaCoS-Trier/" class="nav-link">Home</a></li>
-      <li><a href="/TaCoS-Trier/about" class="nav-link">About TaCoS</a></li>
       <li><a href="/TaCoS-Trier/team" class="nav-link">Team</a></li>
       <li><a href="/TaCoS-Trier/sponsors" class="nav-link">Sponsors</a></li>
       <li><a href="/TaCoS-Trier/speakers" class="nav-link">Speakers</a></li>

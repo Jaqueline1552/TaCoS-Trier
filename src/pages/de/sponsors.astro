@@ -1,0 +1,97 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const aboutURL = getRelativeLocaleUrl("de", "contact");
+
+import '../../styles/global.css'
+import Layout from '../../layout/layout-de.astro'
+---
+
+<Layout>
+<div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
+    <h1 class="text-center">Unsere Sponsoren</h1>
+    <br>
+    <!-- ggf. links zu logos einfügen sodass das auf deren seiten weiterleitet -->
+    <p class="text-center">Ohne die Unterstützung unserer Sponsoren wäre die TaCoS nicht möglich!</p>
+      <br>
+      <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <br>
+    <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col items-center text-center">
+          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
+          <div>
+            <h3>Name</h3>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <br><br>
+    <p class="text-center">Mit Ihrem Sponsoring finanzieren Sie beispielsweise die Unterbringung der Teilnehmer, Verpflegung, Materialien für Workshops und Vorträge sowie Werbematerialien. Neben finanzieller Unterstützung freuen wir uns auch über Sachspenden, wie zum Beispiel Werbegeschenke, die wir an die Teilnehmer verteilen können.<br> <br>
+    Wo kann man sich über eine Sponsorenbeteiligung informieren?
+    <br>
+    TaCoS E-Mail: <a href="mailto:tacos@uni-trier.de" class="underline">tacos@uni-trier.de</a></p>
+    <br>
+    <button class="block mx-auto bg-[#cd0000] hover:bg-[#b30000] text-white font-bold py-2 px-4 rounded-full">
+      <a href="/TaCoS-Trier/images/UT.jpg">Download Sponsor Brochure</a>
+    </button>
+  </div>
+</Layout>
+
