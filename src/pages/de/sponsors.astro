@@ -1,97 +1,147 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-
-const aboutURL = getRelativeLocaleUrl("de", "contact");
-
-import '../../styles/global.css'
 import Layout from '../../layout/layout-de.astro'
+
+const base = "/TaCoS-Trier";
+
+const tiers = [
+  {
+    tier: "Hauptsponsoren & Partner",
+    badge: "Gold / Hauptsponsor",
+    slots: [
+      { name: "Sponsoringplatz verfügbar", note: "Prominente Logoplatzierung, Beilage in Tagungsmappe, Vortragsslot" },
+      { name: "Sponsoringplatz verfügbar", note: "Prominente Logoplatzierung, Beilage in Tagungsmappe, Vortragsslot" },
+    ]
+  },
+  {
+    tier: "Fördernde Sponsoren",
+    badge: "Silber",
+    slots: [
+      { name: "Sponsoringplatz verfügbar", note: "Logopräsenz auf Website und gedrucktem Tagungsprogramm" },
+      { name: "Sponsoringplatz verfügbar", note: "Logopräsenz auf Website und gedrucktem Tagungsprogramm" },
+      { name: "Sponsoringplatz verfügbar", note: "Logopräsenz auf Website und gedrucktem Tagungsprogramm" },
+    ]
+  },
+  {
+    tier: "Akademische & Institutionelle Partner",
+    badge: "Akademisch",
+    slots: [
+      { name: "Universität Trier", note: "Gastgebende Universität & Fachbereich II" },
+      { name: "Fachschaft / Studierendenvertretung", note: "Mitorganisation und lokale Unterstützung" },
+    ]
+  }
+];
 ---
 
-<Layout>
-<div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
-    <h1 class="text-center">Unsere Sponsoren</h1>
-    <br>
-    <!-- ggf. links zu logos einfügen sodass das auf deren seiten weiterleitet -->
-    <p class="text-center">Ohne die Unterstützung unserer Sponsoren wäre die TaCoS nicht möglich!</p>
-      <br>
-      <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
+<Layout
+  title="Unsere Sponsoren | 36. TaCoS Trier 2027"
+  description="Unterstütze die 36. TaCoS an der Universität Trier und fördere den wissenschaftlichen Nachwuchs in der Computerlinguistik."
+>
+  <div class="space-y-16 py-4">
+
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 text-xs font-semibold tracking-wide border border-red-200">
+        Partner & Förderung
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Unsere Sponsoren
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg">
+        Ohne die großzügige Unterstützung von akademischen Institutionen und Unternehmen aus der Praxis wäre die Durchführung der TaCoS nicht möglich.
+      </p>
+    </div>
+
+    <!-- Sponsor Tiers -->
+    <section class="space-y-12 max-w-5xl mx-auto">
+      {tiers.map((section) => (
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h2 class="text-xl font-bold text-slate-900">{section.tier}</h2>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+              {section.badge}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {section.slots.map((item) => (
+              <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200 hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between text-center min-h-44">
+                <div class="flex items-center justify-center h-20 bg-slate-50 rounded-xl border border-dashed border-slate-200 mb-4">
+                  <span class="text-sm font-semibold text-slate-400">{item.name}</span>
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">{item.note}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+      ))}
+    </section>
+
+    <!-- Why Sponsor Card -->
+    <section class="max-w-4xl mx-auto bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-slate-200 space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <h3 class="text-2xl font-bold text-slate-900">Warum TaCoS 2027 unterstützen?</h3>
+        <p class="text-sm text-red-700 font-semibold tracking-wide uppercase mt-1">
+          Direkte Unterstützung für Studierende und wissenschaftlichen Austausch
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-600 leading-relaxed">
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-red-700">✓</span> Günstige Teilnahmegebühren
+          </h4>
+          <p>
+            Ihr Sponsoring ermöglicht es, Teilnahmebeiträge gering zu halten und Unterkünfte sowie Frühstück für weit anreisende Studierende zu bezuschussen.
+          </p>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-red-700">✓</span> Nachwuchsrekrutierung
+          </h4>
+          <p>
+            Erreichen Sie gezielt talentierte Studierende und Absolvent*innen aus den Bereichen Computerlinguistik, Maschinelles Lernen, NLP und Digital Humanities.
+          </p>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-red-700">✓</span> Konferenzmaterial & Verpflegung
+          </h4>
+          <p>
+            Sie finanzieren Tagungsunterlagen, Workshop-Ausrüstung und das gesellige Rahmenprogramm für den persönlichen Austausch.
+          </p>
         </div>
-      </li>
-    </ul>
-    <br>
-    <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-red-700">✓</span> Sachspenden
+          </h4>
+          <p>
+            Neben finanzieller Unterstützung freuen wir uns auch über Sachspenden wie Bücher, Cloud-Guthaben oder Giveaways für Tagungstaschen.
+          </p>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+      </div>
+
+      <!-- Action Box -->
+      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="block text-sm font-bold text-slate-900">Möchten Sie Sponsor werden?</span>
+          <span class="text-xs text-slate-500">Schreiben Sie uns an tacos@uni-trier.de für unser Sponsoring-Dossier.</span>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <a
+            href="mailto:tacos@uni-trier.de?subject=Sponsoring%20TaCoS%202027"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-red-700 text-white font-semibold text-sm hover:bg-red-800 transition"
+          >
+            <span>Sponsoring-Team kontaktieren</span>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
         </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/money.jpg" alt="" class="size-50 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Name</h3>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <br><br>
-    <p class="text-center">Mit Ihrem Sponsoring finanzieren Sie beispielsweise die Unterbringung der Teilnehmer, Verpflegung, Materialien für Workshops und Vorträge sowie Werbematerialien. Neben finanzieller Unterstützung freuen wir uns auch über Sachspenden, wie zum Beispiel Werbegeschenke, die wir an die Teilnehmer verteilen können.<br> <br>
-    Wo kann man sich über eine Sponsorenbeteiligung informieren?
-    <br>
-    TaCoS E-Mail: <a href="mailto:tacos@uni-trier.de" class="underline">tacos@uni-trier.de</a></p>
-    <br>
-    <button class="block mx-auto bg-[#cd0000] hover:bg-[#b30000] text-white font-bold py-2 px-4 rounded-full">
-      <a href="/TaCoS-Trier/images/UT.jpg">Download Sponsor Brochure</a>
-    </button>
+      </div>
+    </section>
+
   </div>
 </Layout>
-

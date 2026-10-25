@@ -1,10 +1,97 @@
 ---
-import '../styles/global.css'
 import Layout from '../layout/layout.astro'
+
+const days = [
+  {
+    day: "Day 1",
+    date: "Thursday, June 03rd, 2027",
+    highlights: [
+      { time: "12:00 – 14:00", title: "Arrival, Check-in & Registration", desc: "Welcome desk open at Campus II. Pick up badges, conference bags, and accommodation keys." },
+      { time: "14:00 – 14:30", title: "Official Opening Remarks", desc: "Welcome by the TaCoS Trier organizing team and university representatives." },
+      { time: "14:30 – 15:45", title: "Opening Keynote Lecture", desc: "Keynote presentation by an invited academic guest." },
+      { time: "16:00 – 18:00", title: "Student Talk Session I", desc: "Selected presentation talks given by student participants." },
+      { time: "19:00 onwards", title: "Welcome Dinner & Icebreaker", desc: "Informal social gathering to get to know attendees." },
+    ]
+  },
+  {
+    day: "Day 2",
+    date: "Friday, June 04th, 2027",
+    highlights: [
+      { time: "09:00 – 10:15", title: "Morning Keynote Lecture", desc: "Keynote presentation on cutting-edge research in NLP." },
+      { time: "10:30 – 12:30", title: "Interactive Workshops", desc: "Hands-on tutorials and technical workshops in computer labs." },
+      { time: "12:30 – 14:00", title: "Lunch Break & Networking", desc: "Lunch together at the campus Mensa." },
+      { time: "14:00 – 16:00", title: "Student Talk Session II & Poster Presentation", desc: "Presentations of student projects and research posters." },
+      { time: "18:00 onwards", title: "Conference Dinner & Social Night", desc: "Evening excursion and social networking in historic Trier." },
+    ]
+  },
+  {
+    day: "Day 3",
+    date: "Saturday, June 05th, 2027",
+    highlights: [
+      { time: "09:30 – 11:30", title: "Student Talk Session III", desc: "Final series of student research presentations." },
+      { time: "11:45 – 13:00", title: "TaCoS General Assembly (Vollversammlung)", desc: "Discussion of conference matters and selection of the host university for TaCoS 2028." },
+      { time: "13:00 – 13:30", title: "Closing Remarks & Goodbyes", desc: "Official farewell and departure." },
+    ]
+  }
+];
 ---
 
-<Layout>
-    <div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
-    <h1 class="text-center">Schedule</h1>
+<Layout
+  title="Program & Schedule | 36. TaCoS Trier 2027"
+  description="Explore the three-day program for the 36th TaCoS Conference at Trier University."
+>
+  <div class="space-y-16 py-4">
+
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 text-xs font-semibold tracking-wide border border-red-200">
+        Conference Timeline
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Program Schedule
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg">
+        Three days filled with talks, workshops, research posters, and social activities at Trier University.
+      </p>
     </div>
+
+    <!-- Alert / Notice -->
+    <div class="max-w-3xl mx-auto bg-slate-100/80 border border-slate-200 rounded-2xl p-4 text-center">
+      <p class="text-xs sm:text-sm text-slate-600">
+        ℹ️ <strong>Preliminary outline:</strong> The exact talk times and room numbers will be updated following the completion of the call for papers.
+      </p>
+    </div>
+
+    <!-- 3 Days Schedule -->
+    <section class="max-w-4xl mx-auto space-y-8">
+      {days.map((dayPlan) => (
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-red-700">{dayPlan.day}</span>
+              <h2 class="text-2xl font-bold text-slate-900">{dayPlan.date}</h2>
+            </div>
+            <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto">
+              Campus II, Trier University
+            </span>
+          </div>
+
+          <div class="space-y-4">
+            {dayPlan.highlights.map((item) => (
+              <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                <span class="text-xs font-bold text-slate-900 font-mono sm:w-36 shrink-0 sm:pt-0.5">
+                  {item.time}
+                </span>
+                <div class="space-y-0.5">
+                  <h3 class="text-base font-bold text-slate-900">{item.title}</h3>
+                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+  </div>
 </Layout>
