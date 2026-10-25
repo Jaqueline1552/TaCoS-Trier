@@ -1,126 +1,169 @@
 ---
-/*do I need this?
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-*/
-
 const base = "/TaCoS-Trier";
-const path = Astro.url.pathname;
+const rawPath = Astro.url.pathname.replace(/\/$/, "");
+const currentPath = rawPath || `${base}/de`;
 
 const isGerman =
-  path === `${base}/de` ||
-  path.startsWith(`${base}/de/`);
+  currentPath === `${base}/de` ||
+  currentPath.startsWith(`${base}/de/`);
 
 const englishPath = isGerman
-  ? path.replace(`${base}/de`, base)
-  : path;
+  ? currentPath.replace(`${base}/de`, base) || `${base}/`
+  : currentPath;
 
 const germanPath = isGerman
-  ? path
-  : `${base}/de${path.slice(base.length)}`;
+  ? currentPath
+  : `${base}/de${currentPath.slice(base.length)}` || `${base}/de`;
+
+const navItems = [
+  { href: `${base}/de`, label: "Home" },
+  { href: `${base}/de/team`, label: "Team" },
+  { href: `${base}/de/speakers`, label: "Referent*innen" },
+  { href: `${base}/de/schedule`, label: "Programm" },
+  { href: `${base}/de/registration`, label: "Teilnahme" },
+  { href: `${base}/de/map`, label: "Karten" },
+  { href: `${base}/de/sponsors`, label: "Sponsoren" },
+  { href: `${base}/de/contact`, label: "Kontakt" },
+];
 ---
 
-<nav class="bg-[#ffeda8] shadow antialiased md:static sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex items-center min-h-20 pl-0 pr-4 px-4">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Brand Logo & Title -->
+      <a href={`${base}/de`} class="flex items-center gap-3 group">
+        <img
+          src={`${base}/images/logo.png`}
+          alt="TaCoS 2027 Logo"
+          class="h-10 w-10 object-contain rounded-lg transition-transform group-hover:scale-105"
+        />
+        <div class="flex flex-col">
+          <span class="font-bold text-slate-900 tracking-tight text-base leading-tight group-hover:text-red-700 transition-colors">
+            TaCoS 2027
+          </span>
+          <span class="text-xs text-red-700 font-medium tracking-wide">
+            Universität Trier
+          </span>
+        </div>
+      </a>
 
-    <a href="/TaCoS-Trier/de/" class="shrink-0 mr-16">
-      <img
-        src="/TaCoS-Trier/images/logo.png"
-        alt="TaCoS 2027 Logo"
-        class="h-28 py-2 w-auto"
-      />
-    </a>
-    
-    <button
-      id="mobile-menu-button"
-      class="md:hidden ml-auto p-2 focus:outline-none"
-      aria-label="Menü öffnen">
-      <span id="burger-icon" class="block text-3xl leading-none">☰</span>
-    </button>
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href === `${base}/de` && (currentPath === `${base}/de` || currentPath === `${base}/de/`));
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                "px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-150",
+                isActive
+                  ? "bg-red-50 text-red-700 font-semibold shadow-xs"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+              ]}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
 
+      <!-- Language Selector & Mobile Trigger -->
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher -->
+        <div class="inline-flex items-center rounded-lg bg-slate-100 p-0.5 border border-slate-200 text-xs font-semibold">
+          <a
+            href={germanPath}
+            lang="de"
+            class:list={[
+              "px-2.5 py-1 rounded-md transition-all",
+              isGerman
+                ? "bg-white text-slate-900 shadow-xs font-bold"
+                : "text-slate-500 hover:text-slate-900"
+            ]}
+            aria-label="Auf Deutsch wechseln"
+          >
+            DE
+          </a>
+          <a
+            href={englishPath}
+            lang="en"
+            class:list={[
+              "px-2.5 py-1 rounded-md transition-all",
+              !isGerman
+                ? "bg-white text-slate-900 shadow-xs font-bold"
+                : "text-slate-500 hover:text-slate-900"
+            ]}
+            aria-label="Switch to English"
+          >
+            EN
+          </a>
+        </div>
 
-    <ul class="hidden md:flex gap-2 ml-auto">
-      <li><a href="/TaCoS-Trier/de/" class="nav-link">Home</a></li>
-      <li><a href="/TaCoS-Trier/de/team" class="nav-link">Team</a></li>
-      <li><a href="/TaCoS-Trier/de/sponsors" class="nav-link">Sponsoren</a></li>
-      <li><a href="/TaCoS-Trier/de/speakers" class="nav-link">Referent*innen</a></li>
-      <li><a href="/TaCoS-Trier/de/registration" class="nav-link">Teilnehmen</a></li>
-      <li><a href="/TaCoS-Trier/de/schedule" class="nav-link">Programm</a></li>
-      <li><a href="/TaCoS-Trier/de/map" class="nav-link">Karten</a></li>
-      <li><a href="/TaCoS-Trier/de/contact" class="nav-link">Kontakt</a></li>
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          id="mobile-menu-button-de"
+          type="button"
+          class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <svg id="burger-open-de" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="burger-close-de" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-<li class="flex items-center gap-1 ml-2">
-  <a
-    href={germanPath}
-    lang="de"
-    aria-current={isGerman ? "page" : undefined}
-    class:list={[
-      "inline-flex items-center gap-1 rounded-md border px-2 py-1",
-      "text-sm transition-colors duration-200",
-      isGerman
-        ? "bg-white/80 border-gray-400/60 text-black"
-        : "border-transparent hover:border-gray-400/60 hover:bg-white/30"
-    ]}
-  >
-    <span>🇩🇪</span>
-    <span>DE</span>
-  </a>
-
-  <a
-    href={englishPath}
-    lang="en"
-    aria-current={!isGerman ? "page" : undefined}
-    class:list={[
-      "inline-flex items-center gap-1 rounded-md border px-2 py-1",
-      "text-sm transition-colors duration-200",
-      !isGerman
-        ? "bg-white/80 border-gray-400/60 text-black"
-        : "border-transparent hover:border-gray-400/60 hover:bg-white/30"
-    ]}
-  >
-    <span>🇬🇧</span>
-    <span>EN</span>
-  </a>
-</li>
-
-    </ul>
+    </div>
   </div>
-</nav>
 
-<div id="mobile-menu" class="md:hidden hidden bg-[#ffeda8] px-4 pb-6">
-  <ul class="flex flex-col gap-2">
-      <li><a href="/TaCoS-Trier/de/" class="nav-link">Home</a></li>
-      <li><a href="/TaCoS-Trier/de/team" class="nav-link">Team</a></li>
-      <li><a href="/TaCoS-Trier/de/sponsors" class="nav-link">Sponsoren</a></li>
-      <li><a href="/TaCoS-Trier/de/speakers" class="nav-link">Referent*innen</a></li>
-      <li><a href="/TaCoS-Trier/de/registration" class="nav-link">Teilnehmen</a></li>
-      <li><a href="/TaCoS-Trier/de/schedule" class="nav-link">Programm</a></li>
-      <li><a href="/TaCoS-Trier/de/map" class="nav-link">Karten</a></li>
-      <li><a href="/TaCoS-Trier/de/contact" class="nav-link">Kontakt</a></li>
-    </ul>
-</div>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu-de" class="hidden lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-md px-4 pt-3 pb-5 shadow-lg">
+    <div class="flex flex-col gap-1">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href === `${base}/de` && (currentPath === `${base}/de` || currentPath === `${base}/de/`));
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+              isActive
+                ? "bg-red-50 text-red-700 font-semibold"
+                : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</header>
 
-<!-- Check if needed: (Mobile version) 
 <script>
-  const btn = document.getElementById("mobile-menu-button");
-  const menu = document.getElementById("mobile-menu");
-  const icon = document.getElementById("burger-icon");
+  const btn = document.getElementById("mobile-menu-button-de");
+  const menu = document.getElementById("mobile-menu-de");
+  const openIcon = document.getElementById("burger-open-de");
+  const closeIcon = document.getElementById("burger-close-de");
 
-  if (btn && menu && icon) {
+  if (btn && menu && openIcon && closeIcon) {
     btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-      icon.textContent = menu.classList.contains("hidden") ? "☰" : "✕";
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
+      const isHidden = menu.classList.contains("hidden");
+      if (isHidden) {
+        menu.classList.remove("hidden");
+        openIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+      } else {
         menu.classList.add("hidden");
-        icon.textContent = "☰";
-      });
+        openIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+      }
     });
   }
 </script>
--->
-
-
-

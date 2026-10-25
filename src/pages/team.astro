@@ -1,117 +1,125 @@
 ---
-import '../styles/global.css'
 import Layout from '../layout/layout.astro'
+
+const base = "/TaCoS-Trier";
+
+const leadOrganizers = [
+  {
+    name: "Jaqueline Pauli",
+    role: "Lead Organizer",
+    affiliation: "Computational Linguistics, Trier University",
+    image: `${base}/images/PB.png`,
+  },
+  {
+    name: "Iftakharul Islam",
+    role: "Lead Organizer",
+    affiliation: "Computational Linguistics, Trier University",
+    image: `${base}/images/PB.png`,
+  },
+];
+
+const teamMembers = [
+  { name: "Lotta", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Selin", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Victoria", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Siddharth", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Emrehan", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Aloyse", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Juan", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Jithin", role: "Organizing Committee", image: `${base}/images/PB.png` },
+  { name: "Akila", role: "Organizing Committee", image: `${base}/images/PB.png` },
+];
 ---
 
-<Layout>
-<div class="px-6 sm:px-12 py-10 sm:py-13 border border-[#cd0000] rounded-lg">
-    <h1 class="text-center">Meet the Team</h1>
-    <br>
-    <h2 class="text-center">The main organizers of TaCoS 2027</h2>
-    <br>
-    <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Jaqueline Pauli</h3>
+<Layout
+  title="Organizing Team | 36. TaCoS Trier 2027"
+  description="Meet the student organizing committee behind the 36th TaCoS Conference at Trier University."
+>
+  <div class="space-y-16 py-4">
+
+    <!-- Page Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 text-xs font-semibold tracking-wide border border-red-200">
+        Student Initiative
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Meet the Organizing Team
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg">
+        TaCoS 2027 is proudly organized by students and volunteers from Trier University, dedicated to creating an inspiring and welcoming conference.
+      </p>
+    </div>
+
+    <!-- Lead Organizers -->
+    <section class="space-y-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-slate-900">Lead Organizers</h2>
+        <p class="text-sm text-slate-500 mt-1">General management and coordination</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        {leadOrganizers.map((person) => (
+          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200 hover:shadow-md hover:border-red-200 transition-all text-center flex flex-col items-center">
+            <div class="relative mb-5">
+              <img
+                src={person.image}
+                alt={person.name}
+                class="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover ring-4 ring-red-50 shadow-sm"
+              />
+              <span class="absolute bottom-0 right-0 bg-red-700 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
+                Lead
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">{person.name}</h3>
+            <p class="text-sm font-semibold text-red-700 mt-0.5">{person.role}</p>
+            <p class="text-xs text-slate-500 mt-2">{person.affiliation}</p>
           </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Iftakharul Islam</h3>
+        ))}
+      </div>
+    </section>
+
+    <!-- Organizing Committee -->
+    <section class="space-y-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-slate-900">Organizing Committee</h2>
+        <p class="text-sm text-slate-500 mt-1">Program, logistics, catering, workshops & support</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {teamMembers.map((member) => (
+          <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200 hover:shadow-md hover:border-red-200 transition-all text-center flex flex-col items-center group">
+            <img
+              src={member.image}
+              alt={member.name}
+              class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover ring-2 ring-slate-100 group-hover:ring-red-100 shadow-xs mb-4 transition-all"
+            />
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-red-700 transition-colors">
+              {member.name}
+            </h3>
+            <p class="text-xs font-medium text-slate-500 mt-1">
+              {member.role}
+            </p>
           </div>
-        </div>
-      </li>
-    </ul>
-    <br>
-    <br>
-    <br>
-    <br>
-      <h2 class="text-center">The other amazing members of the organizing team</h2>
-      <br>
-      <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Lotta</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Selin</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Victoria</h3>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <br>
-    <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Siddharth</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Emrehan</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Aloyse</h3>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <br>
-    <ul role="list" class="flex flex-wrap justify-center gap-x-20 gap-y-12">
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Juan</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Jithin</h3>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="flex flex-col items-center text-center">
-          <img src="/TaCoS-Trier/images/PB.png" alt="" class="size-60 rounded-full outline-1 -outline-offset-1 outline-[#cd0000]" />
-          <div>
-            <h3>Akila</h3>
-          </div>
-        </div>
-      </li>
-    </ul>
+        ))}
+      </div>
+    </section>
+
+    <!-- Volunteer CTA -->
+    <section class="max-w-2xl mx-auto bg-white rounded-2xl p-8 border border-slate-200 shadow-xs text-center space-y-4">
+      <h3 class="text-xl font-bold text-slate-900">Want to Help Out?</h3>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        We are always happy to welcome additional volunteers for the conference days (registration desk, catering, audio/visual support).
+      </p>
+      <a
+        href="mailto:tacos@uni-trier.de"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-700 text-white font-semibold text-sm hover:bg-red-800 transition"
+      >
+        <span>Join the Volunteer Team</span>
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </section>
+
   </div>
 </Layout>
