@@ -1,8 +1,6 @@
 ---
 import Layout from '../layout/layout.astro'
 
-const base = "/TaCoS-Trier";
-
 const maps = [
   {
     title: "Campus II – Overview",
@@ -27,7 +25,7 @@ const maps = [
 
 <Layout
   title="Campus & Venue Maps | 36. TaCoS Trier 2027"
-  description="Campus overview, room plans, and transit directions for the 36th TaCoS Conference at Trier University."
+  description="Campus overview, room plans, interactive map, and transit directions for the 36th TaCoS Conference at Trier University."
 >
   <div class="space-y-16 py-4">
 
@@ -40,12 +38,54 @@ const maps = [
         Campus & Venue Maps
       </h1>
       <p class="text-slate-600 text-base sm:text-lg">
-        TaCoS 2027 takes place primarily at <strong>Campus II of Trier University</strong>. Use the official site plans below to find your way to lecture halls and seminar rooms.
+        TaCoS 2027 takes place primarily at <strong>Campus II of Trier University</strong>. Explore the interactive venue map and detailed campus floor plans below.
       </p>
     </div>
 
+    <!-- Interactive OpenStreetMap Embed -->
+    <section class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden">
+      <div class="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 inline-block mb-1">
+            Live Map
+          </span>
+          <h2 class="text-xl font-bold text-slate-900">Interactive Venue Navigator</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Trier University Campus II & surroundings</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a
+            href="https://www.openstreetmap.org/?mlat=49.7460&mlon=6.6865#map=16/49.7460/6.6865"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition"
+          >
+            <span>Open in OpenStreetMap</span>
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Responsive OSM iframe container -->
+      <div class="w-full h-80 sm:h-96 relative bg-slate-100">
+        <iframe
+          title="Trier University Campus II Map"
+          width="100%"
+          height="100%"
+          class="border-0 w-full h-full"
+          loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=6.6660%2C49.7360%2C6.7060%2C49.7560&amp;layer=mapnik&amp;marker=49.7460%2C6.6865"
+        ></iframe>
+      </div>
+      <div class="p-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+        <span>📍 Marker indicates <strong>Campus II, Universitätsring 15, 54296 Trier</strong></span>
+        <span>Coordinates: 49.7460° N, 6.6865° E</span>
+      </div>
+    </section>
+
     <!-- Transit Information Box -->
-    <section class="max-w-4xl mx-auto bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200">
+    <section class="max-w-5xl mx-auto bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200">
       <div class="flex items-center gap-3 border-b border-slate-100 pb-3 mb-4">
         <div class="h-10 w-10 rounded-xl bg-red-50 text-red-700 flex items-center justify-center">
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,13 +109,18 @@ const maps = [
         </div>
         <div class="bg-slate-50 p-4 rounded-xl">
           <span class="font-bold text-slate-900 block mb-1">🚗 By Car</span>
-          <p class="text-xs leading-relaxed">Follow highway A64 / A602 towards Trier, taking the exit for <em>Universität</em>. Free visitor parking is available at Campus II.</p>
+          <p class="text-xs leading-relaxed">Follow highway A64 / A602 towards Trier, taking the exit for <em>Universität</em>. Free visitor parking is available directly at Campus II.</p>
         </div>
       </div>
     </section>
 
     <!-- Site Plans Grid -->
     <section class="max-w-5xl mx-auto space-y-10">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl font-bold text-slate-900">Official Campus Floor & Site Plans</h2>
+        <p class="text-xs sm:text-sm text-slate-500">Official plans provided by Trier University Administration</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {maps.map((map) => (
           <div class="bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">

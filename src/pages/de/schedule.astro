@@ -3,44 +3,52 @@ import Layout from '../../layout/layout-de.astro'
 
 const days = [
   {
+    id: "day-1-de",
     day: "Tag 1",
+    label: "Tag 1 (Do, 03.06.)",
     date: "Donnerstag, 03. Juni 2027",
     highlights: [
-      { time: "12:00 – 14:00", title: "Anreise, Anmeldung & Check-in", desc: "Anmeldebüro auf Campus II geöffnet. Ausgabe der Tagungstaschen, Namensschilder und Schlafplatz-Zuweisung." },
-      { time: "14:00 – 14:30", title: "Offizielle Eröffnung", desc: "Begrüßung durch das Trierer Organisationsteam und Vertreter*innen der Universität." },
-      { time: "14:30 – 15:45", title: "Eröffnungs-Keynote", desc: "Plenarvortrag einer eingeladenen Persönlichkeit aus der Wissenschaft." },
-      { time: "16:00 – 18:00", title: "Vortragsblock I (Studierende)", desc: "Erste Vortragsreihe mit Beiträgen von teilnehmenden Studierenden." },
-      { time: "Ab 19:00", title: "Kennenlern-Abend & Abendessen", desc: "Gemeinsamer geselliger Ausklang zum Kennenlernen und Vernetzen." },
+      { time: "12:00 – 14:00", title: "Anreise, Anmeldung & Check-in", desc: "Anmeldebüro auf Campus II geöffnet. Ausgabe der Tagungstaschen, Namensschilder und Schlafplatz-Zuweisung.", tag: "Anmeldung", tagColor: "bg-slate-100 text-slate-700" },
+      { time: "14:00 – 14:30", title: "Offizielle Eröffnung", desc: "Begrüßung durch das Trierer Organisationsteam und Vertreter*innen der Universität.", tag: "Plenum", tagColor: "bg-red-50 text-red-700" },
+      { time: "14:30 – 15:45", title: "Eröffnungs-Keynote", desc: "Plenarvortrag einer eingeladenen Persönlichkeit aus der Computerlinguistik.", tag: "Keynote", tagColor: "bg-amber-100 text-amber-800" },
+      { time: "16:00 – 18:00", title: "Vortragsblock I (Studierende)", desc: "Erste Vortragsreihe mit Beiträgen von teilnehmenden Studierenden.", tag: "Vortrag", tagColor: "bg-blue-50 text-blue-700" },
+      { time: "Ab 19:00", title: "Kennenlern-Abend & Abendessen", desc: "Gemeinsamer geselliger Ausklang zum Kennenlernen und Vernetzen.", tag: "Social", tagColor: "bg-emerald-50 text-emerald-700" },
     ]
   },
   {
+    id: "day-2-de",
     day: "Tag 2",
+    label: "Tag 2 (Fr, 04.06.)",
     date: "Freitag, 04. Juni 2027",
     highlights: [
-      { time: "09:00 – 10:15", title: "Morgen-Keynote", desc: "Fachvortrag zu aktuellen Trends in der Sprachverarbeitung und KI." },
-      { time: "10:30 – 12:30", title: "Praxis-Workshops", desc: "Hands-on Tutorials und thematische Workshops in den Rechnerpools." },
-      { time: "12:30 – 14:00", title: "Mittagspause & Austausch", desc: "Gemeinsames Mittagessen in der Universitätsmensa." },
-      { time: "14:00 – 16:00", title: "Vortragsblock II & Postersession", desc: "Präsentationen studentischer Forschungsprojekte und Posterausstellung." },
-      { time: "Ab 18:00", title: "Konferenzabend & Rahmenprogramm", desc: "Social Event und Erkundung der ältesten Stadt Deutschlands." },
+      { time: "09:00 – 10:15", title: "Morgen-Keynote", desc: "Fachvortrag zu aktuellen Trends in der Sprachverarbeitung und KI.", tag: "Keynote", tagColor: "bg-amber-100 text-amber-800" },
+      { time: "10:30 – 12:30", title: "Praxis-Workshops", desc: "Hands-on Tutorials und thematische Workshops in den universitären Rechnerpools.", tag: "Workshop", tagColor: "bg-purple-50 text-purple-700" },
+      { time: "12:30 – 14:00", title: "Mittagspause & Austausch", desc: "Gemeinsames Mittagessen in der Universitätsmensa.", tag: "Verpflegung", tagColor: "bg-slate-100 text-slate-700" },
+      { time: "14:00 – 16:00", title: "Vortragsblock II & Postersession", desc: "Parallele Vortragsblöcke und interaktive Posterausstellung.", tag: "Vortrag", tagColor: "bg-blue-50 text-blue-700" },
+      { time: "Ab 18:00", title: "Konferenzabend & Stadtrundgang", desc: "Social Event und Erkundung der historischen Trierer Altstadt.", tag: "Social", tagColor: "bg-emerald-50 text-emerald-700" },
     ]
   },
   {
+    id: "day-3-de",
     day: "Tag 3",
+    label: "Tag 3 (Sa, 05.06.)",
     date: "Samstag, 05. Juni 2027",
     highlights: [
-      { time: "09:30 – 11:30", title: "Vortragsblock III (Studierende)", desc: "Abschließende Vortragsrunde mit weiteren studentischen Projekten." },
-      { time: "11:45 – 13:00", title: "TaCoS-Vollversammlung", desc: "Besprechung von Konferenzthemen und Wahl des Austragungsortes für die TaCoS 2028." },
-      { time: "13:00 – 13:30", title: "Abschlussworte & Abreise", desc: "Offizielles Konferenzende und Verabschiedung." },
+      { time: "09:30 – 11:30", title: "Vortragsblock III (Studierende)", desc: "Abschließende Vortragsrunde mit weiteren studentischen Projekten.", tag: "Vortrag", tagColor: "bg-blue-50 text-blue-700" },
+      { time: "11:45 – 13:00", title: "TaCoS-Vollversammlung", desc: "Besprechung von Konferenzthemen und Wahl des Austragungsortes für die TaCoS 2028.", tag: "Plenum", tagColor: "bg-red-50 text-red-700" },
+      { time: "13:00 – 13:30", title: "Abschlussworte & Abreise", desc: "Offizielles Konferenzende, Gepäckausgabe und Verabschiedung.", tag: "Plenum", tagColor: "bg-slate-100 text-slate-700" },
     ]
   }
 ];
+
+const gcalUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=36.+TaCoS+Tagung+Trier+2027&dates=20270603T080000Z/20270605T140000Z&details=Tagung+der+Computerlinguistik-Studierenden+(TaCoS)+an+der+Universit%C3%A4t+Trier.&location=Universit%C3%A4t+Trier,+Campus+II";
 ---
 
 <Layout
   title="Programm & Ablauf | 36. TaCoS Trier 2027"
-  description="Das vorläufige Drei-Tages-Programm der 36. TaCoS an der Universität Trier."
+  description="Das interaktive Drei-Tages-Programm der 36. TaCoS an der Universität Trier."
 >
-  <div class="space-y-16 py-4">
+  <div class="space-y-12 py-4">
 
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-4">
@@ -53,45 +61,152 @@ const days = [
       <p class="text-slate-600 text-base sm:text-lg">
         Drei Tage voller Vorträge, Workshops, Posterpräsentationen und Austausch an der Universität Trier.
       </p>
+
+      <!-- Calendar Sync Actions -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href={gcalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-slate-700 hover:text-red-700 border border-slate-200 text-xs sm:text-sm font-semibold shadow-xs hover:bg-slate-50 transition"
+        >
+          <svg class="h-4 w-4 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Zu Google Kalender hinzufügen</span>
+        </a>
+
+        <button
+          id="btn-download-ics-de"
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-slate-700 hover:text-red-700 border border-slate-200 text-xs sm:text-sm font-semibold shadow-xs hover:bg-slate-50 transition cursor-pointer"
+        >
+          <svg class="h-4 w-4 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>.iCal-Datei herunterladen</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Alert / Notice -->
-    <div class="max-w-3xl mx-auto bg-slate-100/80 border border-slate-200 rounded-2xl p-4 text-center">
-      <p class="text-xs sm:text-sm text-slate-600">
-        ℹ️ <strong>Vorläufige Übersicht:</strong> Genaue Vortragstitel, Referent*innen und Raumangaben werden nach Abschluss des Call for Papers veröffentlicht.
-      </p>
-    </div>
+    <!-- Interactive Schedule Tabs -->
+    <section class="max-w-4xl mx-auto space-y-6">
+      
+      <!-- Day Selector Tabs -->
+      <div class="flex items-center justify-center p-1.5 bg-slate-200/80 rounded-2xl max-w-xl mx-auto gap-1">
+        {days.map((d, idx) => (
+          <button
+            type="button"
+            data-target={d.id}
+            class:list={[
+              "schedule-tab-de flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-center cursor-pointer",
+              idx === 0 ? "active bg-white text-slate-900 shadow-sm" : "text-slate-600 hover:text-slate-900"
+            ]}
+          >
+            {d.label}
+          </button>
+        ))}
+      </div>
 
-    <!-- 3 Days Schedule -->
-    <section class="max-w-4xl mx-auto space-y-8">
-      {days.map((dayPlan) => (
-        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200 space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2">
-            <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-red-700">{dayPlan.day}</span>
-              <h2 class="text-2xl font-bold text-slate-900">{dayPlan.date}</h2>
-            </div>
-            <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto">
-              Campus II, Universität Trier
-            </span>
-          </div>
-
-          <div class="space-y-4">
-            {dayPlan.highlights.map((item) => (
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 p-3 rounded-xl hover:bg-slate-50 transition-colors">
-                <span class="text-xs font-bold text-slate-900 font-mono sm:w-36 shrink-0 sm:pt-0.5">
-                  {item.time}
-                </span>
-                <div class="space-y-0.5">
-                  <h3 class="text-base font-bold text-slate-900">{item.title}</h3>
-                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                </div>
+      <!-- Schedule Panels -->
+      <div class="space-y-6">
+        {days.map((dayPlan, idx) => (
+          <div
+            id={dayPlan.id}
+            class:list={[
+              "schedule-panel-de bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200 transition-opacity duration-200",
+              idx !== 0 && "hidden"
+            ]}
+          >
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2 mb-6">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-red-700">{dayPlan.day}</span>
+                <h2 class="text-2xl font-bold text-slate-900">{dayPlan.date}</h2>
               </div>
-            ))}
+              <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto">
+                Campus II, Universität Trier
+              </span>
+            </div>
+
+            <div class="space-y-3">
+              {dayPlan.highlights.map((item) => (
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50/70 transition-colors">
+                  <div class="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6">
+                    <span class="text-xs font-bold text-slate-900 font-mono sm:w-32 shrink-0 sm:pt-0.5">
+                      {item.time}
+                    </span>
+                    <div class="space-y-1">
+                      <h3 class="text-base font-bold text-slate-900">{item.title}</h3>
+                      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                  <span class:list={["text-[11px] font-bold px-2.5 py-0.5 rounded-full shrink-0 self-start sm:self-center", item.tagColor]}>
+                    {item.tag}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
     </section>
 
   </div>
 </Layout>
+
+<script>
+  const tabs = document.querySelectorAll(".schedule-tab-de");
+  const panels = document.querySelectorAll(".schedule-panel-de");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const targetId = tab.getAttribute("data-target");
+
+      tabs.forEach((t) => {
+        t.classList.remove("active", "bg-white", "text-slate-900", "shadow-sm");
+        t.classList.add("text-slate-600");
+      });
+      tab.classList.add("active", "bg-white", "text-slate-900", "shadow-sm");
+      tab.classList.remove("text-slate-600");
+
+      panels.forEach((p) => {
+        if (p.id === targetId) {
+          p.classList.remove("hidden");
+        } else {
+          p.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  const btnIcs = document.getElementById("btn-download-ics-de");
+  if (btnIcs) {
+    btnIcs.addEventListener("click", () => {
+      const icsData = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//TaCoS 2027//Trier University//DE",
+        "BEGIN:VEVENT",
+        "UID:tacos2027-trier@uni-trier.de",
+        "DTSTAMP:20261025T000000Z",
+        "DTSTART:20270603T080000Z",
+        "DTEND:20270605T140000Z",
+        "SUMMARY:36. TaCoS Tagung Trier 2027",
+        "DESCRIPTION:36. Tagung der Computerlinguistik-Studierenden an der Universität Trier.",
+        "LOCATION:Universität Trier Campus II, Deutschland",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "tacos-2027-trier.ics");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+</script>
