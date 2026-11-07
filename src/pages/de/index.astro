@@ -1,272 +1,406 @@
 ---
-import Layout from '../../layout/layout-de.astro'
+import Layout from '../../layout/layout-de.astro';
 
 const base = "/TaCoS-Trier";
 
-const featureCards = [
+const links = [
   {
-    href: `${base}/de/team`,
-    title: "Organisationsteam",
-    desc: "Lerne das studentische Organisationsteam der TaCoS 2027 an der Universität Trier kennen.",
-    badge: "Team",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`,
+    href: `${base}/de/schedule`,
+    title: "Programm",
+    desc: "Zeitplan für Vorträge, Workshops und Abendessen.",
   },
   {
     href: `${base}/de/speakers`,
-    title: "Referent*innen",
-    desc: "Erfahre mehr über die Keynote-Speaker aus Forschung und Praxis der Computerlinguistik.",
-    badge: "Keynotes",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />`,
-  },
-  {
-    href: `${base}/de/schedule`,
-    title: "Programm & Ablauf",
-    desc: "Entdecke Vorträge, Workshops, Postersessions und das Rahmenprogramm zum Vernetzen.",
-    badge: "Programm",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />`,
+    title: "Keynotes",
+    desc: "Eingeladene Referierende aus Wissenschaft und Praxis.",
   },
   {
     href: `${base}/de/registration`,
-    title: "Teilnahme & Unterkunft",
-    desc: "Informationen zu Teilnahmegebühren, Unterkunft und Verpflegung in Trier.",
-    badge: "Anmeldung",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />`,
-  },
-  {
-    href: `${base}/de/map`,
-    title: "Lagepläne & Campus",
-    desc: "Orientierungshilfen und Raumpläne für die Veranstaltungsorte auf Campus I und II.",
-    badge: "Orientierung",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
+    title: "Anmeldung",
+    desc: "Informationen zur Teilnahme und Tagungsanmeldung.",
   },
   {
     href: `${base}/de/sponsors`,
-    title: "Unsere Sponsoren",
-    desc: "Partner und Förderer, die die Tagung für Studierende möglich machen.",
-    badge: "Förderung",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />`,
+    title: "Sponsoren",
+    desc: "Informationen für Partner und Förderer der Tagung.",
   },
   {
-    href: `${base}/de/contact`,
-    title: "Kontakt",
-    desc: "Fragen, Ideen oder Anregungen? Kontaktiere unser Organisationsteam direkt.",
-    badge: "Kontakt",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+    href: `${base}/de/map`,
+    title: "Campusplan",
+    desc: "Wegbeschreibung und Raumübersicht auf Campus I.",
+  },
+  {
+    href: `${base}/de/team`,
+    title: "Team",
+    desc: "Das studentische Organisationsteam der TaCoS 2027 in Trier.",
   },
 ];
 ---
 
 <Layout
   title="36. TaCoS Trier 2027 | Tagung der Computerlinguistik-Studierenden"
-  description="Wir freuen uns auf die 36. Tagung der Computerlinguistik-Studierenden (TaCoS) vom 03. bis 05. Juni 2027 an der Universität Trier."
+  description="TaCoS 2027 an der Universität Trier vom 03. bis 05. Juni 2027. Die jährliche Fachtagung von und für Studierende."
+  fullWidth={true}
 >
-  <div class="space-y-16">
+  <!-- Hero Section mit Campus-Hintergrund -->
+  <section class="relative min-h-[75vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={`background-image: url('${base}/images/Campus_Oben.jpg');`}
+      aria-hidden="true"
+    ></div>
 
-    <!-- Hero Section -->
-    <section class="text-center space-y-6 pt-4 sm:pt-8">
-      
-      <!-- Pill Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-red-800 text-xs sm:text-sm font-semibold tracking-wide">
-        <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+    <!-- Ruhiger dunkler Filter für klare Lesbarkeit -->
+    <div class="absolute inset-0 bg-slate-950/65"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center">
+      <p class="text-xs sm:text-sm font-semibold text-slate-300 uppercase tracking-widest mb-3">
         36. Tagung der Computerlinguistik-Studierenden
-      </div>
+      </p>
 
-      <!-- Main Title -->
-      <div class="space-y-2 max-w-4xl mx-auto">
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          36. TaCoS <span class="text-red-700">Trier 2027</span>
-        </h1>
-        <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-normal">
-          Die jährliche Tagung für Studierende der Computerlinguistik, Sprachtechnologie und verwandter Fachbereiche.
-        </p>
-      </div>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-3">
+        TaCoS 2027
+      </h1>
 
-      <!-- Event Details Bar -->
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base text-slate-700 pt-2">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-xs border border-slate-200 font-medium">
-          <svg class="h-5 w-5 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          <span>03. – 05. Juni 2027</span>
-        </div>
+      <p class="text-xl sm:text-2xl text-slate-200 font-light mb-1">
+        03. bis 05. Juni 2027
+      </p>
 
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-xs border border-slate-200 font-medium">
-          <svg class="h-5 w-5 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <a href="https://www.uni-trier.de/" target="_blank" rel="noopener noreferrer" class="hover:text-red-700 transition">
-            Universität Trier, Deutschland &rarr;
-          </a>
-        </div>
-      </div>
+      <p class="text-base sm:text-lg text-slate-300 font-normal mb-8">
+        Universität Trier
+      </p>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-wrap justify-center gap-3 pt-2">
+      <div class="flex flex-wrap items-center justify-center gap-3">
         <a
           href={`${base}/de/registration`}
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-700 text-white font-semibold text-sm sm:text-base hover:bg-red-800 shadow-sm transition-all hover:shadow-md"
+          class="px-6 py-3 rounded-lg bg-red-700 text-white font-medium text-sm hover:bg-red-600 transition-colors"
         >
-          Zur Teilnahme
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
+          Teilnahme
         </a>
         <a
-          href={`${base}/de/team`}
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-700 font-semibold text-sm sm:text-base border border-slate-200 hover:bg-slate-50 transition-colors shadow-xs"
+          href={`${base}/de/schedule`}
+          class="px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white font-medium text-sm hover:bg-white/20 transition-colors"
         >
-          Organisationsteam
+          Programm ansehen
         </a>
       </div>
+    </div>
+  </section>
 
-    </section>
-
-    <!-- Live Countdown Section -->
-    <section class="max-w-3xl mx-auto">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 text-center space-y-4">
-        <span class="text-xs uppercase font-bold tracking-widest text-red-700">
-          Countdown zur TaCoS 2027
+  <!-- Countdown Section -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 -mt-10 relative z-20">
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-xl shadow-slate-200/50 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-center sm:text-left">
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-red-700 mb-1">
+          Countdown zur Tagung
         </span>
-        <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto">
-          
-          <div class="bg-slate-50 rounded-xl p-3 sm:p-4 border border-slate-100 flex flex-col items-center">
-            <span class="countdown-days text-3xl sm:text-5xl font-extrabold text-slate-900 font-mono">--</span>
-            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Tage</span>
-          </div>
-
-          <div class="bg-slate-50 rounded-xl p-3 sm:p-4 border border-slate-100 flex flex-col items-center">
-            <span class="countdown-hours text-3xl sm:text-5xl font-extrabold text-slate-900 font-mono">--</span>
-            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Stunden</span>
-          </div>
-
-          <div class="bg-slate-50 rounded-xl p-3 sm:p-4 border border-slate-100 flex flex-col items-center">
-            <span class="countdown-minutes text-3xl sm:text-5xl font-extrabold text-slate-900 font-mono">--</span>
-            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Minuten</span>
-          </div>
-
-          <div class="bg-slate-50 rounded-xl p-3 sm:p-4 border border-slate-100 flex flex-col items-center">
-            <span class="countdown-seconds text-3xl sm:text-5xl font-extrabold text-red-700 font-mono">--</span>
-            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Sekunden</span>
-          </div>
-
-        </div>
-        <p class="text-xs text-slate-500">
-          Die Konferenz beginnt am Donnerstag, 3. Juni 2027 um 08:00 Uhr MESZ
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+          TaCoS 2027 in Trier
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Beginn am 03. Juni 2027 um 08:00 Uhr MESZ
         </p>
       </div>
-    </section>
 
-    <!-- Campus Hero Visual Banner -->
-    <section class="max-w-5xl mx-auto">
-      <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 group">
-        <img
-          src={`${base}/images/UT.jpg`}
-          alt="Universität Trier Campus"
-          class="w-full h-64 sm:h-80 lg:h-96 object-cover object-center group-hover:scale-[1.01] transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent flex items-end p-6 sm:p-8">
-          <div class="text-white space-y-1">
-            <span class="inline-block text-xs font-semibold uppercase tracking-wider bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md mb-1">
-              Veranstaltungsort
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-white">Universität Trier</h2>
-            <p class="text-sm text-slate-200 max-w-xl">
-              Umgeben von römischer Geschichte und Natur freut sich der Campus der Universität Trier darauf, Studierende aus ganz Europa willkommen zu heißen.
-            </p>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex flex-col items-center">
+          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+            <span class="countdown-days text-xl sm:text-2xl font-bold font-mono tabular-nums leading-none">--</span>
           </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1.5">Tage</span>
+        </div>
+
+        <span class="text-slate-400 font-bold text-lg mb-4">:</span>
+
+        <div class="flex flex-col items-center">
+          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+            <span class="countdown-hours text-xl sm:text-2xl font-bold font-mono tabular-nums leading-none">--</span>
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1.5">Std</span>
+        </div>
+
+        <span class="text-slate-400 font-bold text-lg mb-4">:</span>
+
+        <div class="flex flex-col items-center">
+          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+            <span class="countdown-minutes text-xl sm:text-2xl font-bold font-mono tabular-nums leading-none">--</span>
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1.5">Min</span>
+        </div>
+
+        <span class="text-slate-400 font-bold text-lg mb-4">:</span>
+
+        <div class="flex flex-col items-center">
+          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+            <span class="countdown-seconds text-xl sm:text-2xl font-bold font-mono tabular-nums leading-none text-red-400">--</span>
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1.5">Sek</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section class="max-w-4xl mx-auto">
-      <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b border-slate-100 pb-4">
-          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Über TaCoS</h2>
-          <p class="text-sm text-red-700 font-semibold tracking-wide uppercase mt-1">
-            Tagung der Computerlinguistik-Studierenden
+  <!-- Über die TaCoS -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      
+      <!-- Linke Spalte: Willkommen und Links -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+            Wir freuen uns auf euch
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            Die Fachschaft CoDiPho (Computerlinguistik, Digital Humanities und Phonetik) und das Organisationsteam der Universität Trier richten die 36. TaCoS im Juni 2027 aus. Egal ob ihr eigene Arbeiten oder Abschlussarbeiten vorstellen wollt, Vorträge hören möchtet oder andere Studierende aus der Computerlinguistik, dem NLP und angrenzenden Fächern kennenlernen wollt: alle sind willkommen.
           </p>
         </div>
 
-        <div class="space-y-4 text-slate-600 leading-relaxed text-base sm:text-lg">
-          <p>
-            Die <strong>Tagung der Computerlinguistik-Studierenden (TaCoS)</strong> wurde erstmals 1992 organisiert und findet einmal jährlich statt. Sie bietet Studierenden der Computerlinguistik und angrenzender Fachgebiete die Möglichkeit, sich im Rahmen von Vorträgen, Workshops und Postersessions auszutauschen und zu vernetzen.
-          </p>
-          <p>
-            Die Tagung wird vollständig von ehrenamtlichen studentischen Teams ausgerichtet. Die Teilnehmenden erhalten traditionell gegen eine geringe Gebühr Unterkunft und Frühstück. Im Mittelpunkt stehen Vorträge und Workshops – jeweils von Studierenden für Studierende gestaltet – ergänzt durch renommierte Gastvorträge und ein abwechslungsreiches Rahmenprogramm.
-          </p>
-        </div>
+        <div class="space-y-3 pt-2">
+          <a
+            href="https://www.uni-trier.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
+          >
+            <div class="text-sm font-semibold text-slate-900">Universität Trier</div>
+            <div class="text-xs text-slate-500 mt-0.5">Mehr über die Universität erfahren &rarr;</div>
+          </a>
 
-        <div class="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
           <a
             href="https://linguistik.computer/"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-sm font-semibold text-red-700 hover:text-red-800 transition"
+            class="block p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
           >
-            <span>Frühere TaCoS-Tagungen entdecken</span>
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-
-          <a
-            href="mailto:tacos@uni-trier.de"
-            class="text-xs font-medium text-slate-500 hover:text-slate-800 transition"
-          >
-            Fragen? Kontaktiere tacos@uni-trier.de
+            <div class="text-sm font-semibold text-slate-900">Frühere TaCoS-Ausgaben</div>
+            <div class="text-xs text-slate-500 mt-0.5">Archiv früherer Tagungen auf linguistik.computer &rarr;</div>
           </a>
         </div>
       </div>
-    </section>
 
-    <!-- Conference Navigation Hub -->
-    <section class="max-w-6xl mx-auto space-y-8">
-      <div class="text-center space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">TaCoS 2027 entdecken</h2>
-        <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
-          Alle Bereiche, Zeitpläne, Lagepläne und Neuigkeiten rund um die Tagung.
+      <!-- Rechte Spalte: Was ist die TaCoS? -->
+      <div class="bg-white rounded-xl p-6 sm:p-8 border border-slate-200 space-y-4">
+        <h3 class="text-xl font-bold text-slate-900">
+          Was ist die TaCoS?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Die „Tagung der Computerlinguistik-Studierenden“ (TaCoS) ist eine von Studierenden geleitete Fachtagung für Computerlinguistik. Sie wurde erstmals 1992 organisiert und findet einmal jährlich statt. Sie bietet Studierenden der Computerlinguistik, des NLP und angrenzender Fachbereiche die Gelegenheit, sich in Vorträgen und Workshops fachlich auszutauschen. Die Tagung wird von Teams studentischer Freiwilliger an ihrer Universität ausgerichtet.
+        </p>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Im Mittelpunkt der Tagung stehen studentische Vorträge, Workshops und Postersessions. Zudem halten eingeladene Referierende aus Wissenschaft und Praxis Keynote-Vorträge. Ein begleitendes Rahmenprogramm bietet Raum für Austausch und Vernetzung.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featureCards.map((card) => (
+    </div>
+  </section>
+
+  <!-- Programmübersicht (Invertierte dunkle Fläche) -->
+  <section class="bg-slate-900 text-white py-16 sm:py-20 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 text-center sm:text-left">
+        <span class="text-xs font-mono uppercase tracking-widest text-red-400 block mb-1">Programm</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Programm (Im Aufbau)</h2>
+        <p class="text-slate-400 text-sm mt-1">Vortragstitel und genaue Uhrzeiten folgen nach Abschluss des Call for Papers.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Tag 1 -->
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-950/70">
+          <div class="text-xs font-mono uppercase tracking-wider text-red-400 mb-1">Donnerstag, 03. Juni</div>
+          <h3 class="text-base font-bold text-white mb-3">Anreise und Auftakt</h3>
+          <ul class="text-sm text-slate-300 space-y-2">
+            <li>Anreise und Check-in</li>
+            <li>Begrüßung</li>
+            <li>Eröffnungs-Keynote</li>
+            <li>Kennenlernen am Abend</li>
+          </ul>
+        </div>
+
+        <!-- Tag 2 -->
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-950/70">
+          <div class="text-xs font-mono uppercase tracking-wider text-red-400 mb-1">Freitag, 04. Juni</div>
+          <h3 class="text-base font-bold text-white mb-3">Vorträge und Poster</h3>
+          <ul class="text-sm text-slate-300 space-y-2">
+            <li>Keynote-Vortrag</li>
+            <li>Studentische Vortragsblöcke</li>
+            <li>Postersession</li>
+            <li>Konferenzabend</li>
+          </ul>
+        </div>
+
+        <!-- Tag 3 -->
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-950/70">
+          <div class="text-xs font-mono uppercase tracking-wider text-red-400 mb-1">Samstag, 05. Juni</div>
+          <h3 class="text-base font-bold text-white mb-3">Workshops und Abschluss</h3>
+          <ul class="text-sm text-slate-300 space-y-2">
+            <li>Praktische Workshops</li>
+            <li>Gemeinsamer Austausch</li>
+            <li>Abschlussplenum und Feedback</li>
+            <li>Verabschiedung und Abreise</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center sm:text-left">
+        <a
+          href={`${base}/de/schedule`}
+          class="text-sm font-semibold text-red-400 hover:text-red-300 transition-colors"
+        >
+          Zum Programm &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veranstaltungsort -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      
+      <div class="space-y-5">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+            Der Veranstaltungsort
+          </h2>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            Die TaCoS 2027 findet auf dem Campus I der Universität Trier statt. Alle Vorträge, Workshops und das Catering finden in den zentralen Hörsaalgebäuden auf dem Tarforst-Campus statt.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-white">
+          <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Adresse</div>
+          <address class="text-sm font-medium not-italic text-slate-900 leading-snug">
+            Universität Trier<br />
+            Campus I, Universitätsring 15<br />
+            54296 Trier, Deutschland
+          </address>
+        </div>
+
+        <div class="flex items-center gap-4 text-sm font-medium">
           <a
-            href={card.href}
-            class="group bg-white rounded-2xl p-6 shadow-xs border border-slate-200/90 hover:border-red-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+            href={`${base}/de/map`}
+            class="text-red-700 hover:text-red-800 transition-colors"
           >
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <div class="h-12 w-12 rounded-xl bg-red-50 text-red-700 flex items-center justify-center group-hover:bg-red-700 group-hover:text-white transition-colors duration-200">
-                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={card.icon} />
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-red-50 group-hover:text-red-700 transition-colors">
-                  {card.badge}
-                </span>
-              </div>
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-700 transition-colors">
-                  {card.title}
-                </h3>
-                <p class="text-sm text-slate-600 mt-1 leading-relaxed">
-                  {card.desc}
-                </p>
-              </div>
+            Campusplan und Anreise &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 Fotos ohne künstliche Überlagerungen -->
+      <div class="grid grid-cols-2 gap-4">
+        <img
+          src={`${base}/images/Campus_Bibliothek.jpg`}
+          alt="Universitätsbibliothek Trier"
+          class="w-full h-48 sm:h-56 object-cover rounded-xl border border-slate-200"
+        />
+        <img
+          src={`${base}/images/Gebaude.jpg`}
+          alt="Architektur auf dem Campus der Universität Trier"
+          class="w-full h-48 sm:h-56 object-cover object-top rounded-xl border border-slate-200"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tagungsstadt Trier -->
+  <section class="border-t border-slate-200 bg-slate-50/70 py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        
+        <!-- Foto der Porta Nigra -->
+        <div class="order-2 lg:order-1">
+          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
+            <img
+              src={`${base}/images/porta_nigra.JPG`}
+              alt="Porta Nigra römisches Stadttor in Trier"
+              class="w-full h-72 sm:h-96 object-cover object-center"
+            />
+            <div class="p-3 sm:p-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+              <span class="font-medium text-slate-700">Porta Nigra (ca. 170 n. Chr.)</span>
+              <span>Foto: Roland Morgen</span>
             </div>
-            
-            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-red-700 group-hover:text-red-800">
-              <span>Mehr erfahren</span>
-              <svg class="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
+          </div>
+        </div>
+
+        <!-- Stadt-Informationen -->
+        <div class="order-1 lg:order-2 space-y-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-red-700 block mb-1">Tagungsstadt</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+              Älteste Stadt Deutschlands
+            </h2>
+            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Im Jahr 16 v. Chr. als <em>Augusta Treverorum</em> gegründet, blickt Trier auf über 2.000 Jahre Geschichte zurück. An der Mosel gelegen, bietet die Stadt römische UNESCO-Welterbestätten wie Porta Nigra, die Kaiserthermen und das Amphitheater direkt im Stadtzentrum.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Informationsübersicht -->
+  <section class="bg-white border-y border-slate-200 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-8">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          Alle Bereiche im Überblick
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {links.map((item) => (
+          <a
+            href={item.href}
+            class="block p-5 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-colors"
+          >
+            <h3 class="font-bold text-slate-900 text-base mb-1">
+              {item.title}
+            </h3>
+            <p class="text-sm text-slate-600">
+              {item.desc}
+            </p>
           </a>
         ))}
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
+  <!-- Sponsoren -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 text-center">
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2">
+      Sponsoren
+    </h2>
+    <p class="text-sm text-slate-600 max-w-lg mx-auto mb-8">
+      Die TaCoS 2027 wird durch die Universität Trier, den Fachschaftsrat CoDiPho (Computerlinguistik, Digital Humanities und Phonetik) und unsere Förderer unterstützt.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 py-4 max-w-3xl mx-auto">
+      <div class="px-6 py-4 rounded-lg border border-slate-200 bg-white font-medium text-slate-800 text-sm">
+        Universität Trier
+      </div>
+      <div class="px-6 py-4 rounded-lg border border-slate-200 bg-white font-medium text-slate-800 text-sm">
+        FSR CoDiPho Trier
+      </div>
+      <a
+        href={`${base}/de/sponsors`}
+        class="px-5 py-3.5 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50 hover:border-slate-400 font-mono text-xs uppercase tracking-wider text-slate-500 transition-colors"
+      >
+        + Ihr Logo hier
+      </a>
+      <a
+        href={`${base}/de/sponsors`}
+        class="px-5 py-3.5 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50 hover:border-slate-400 font-mono text-xs uppercase tracking-wider text-slate-500 transition-colors"
+      >
+        + Ihr Logo hier
+      </a>
+    </div>
+
+    <p class="text-xs text-slate-500 mt-6">
+      Möchtet ihr die Tagung unterstützen? Mehr Informationen gibt es auf unserer <a href={`${base}/de/sponsors`} class="text-slate-800 underline">Sponsoring-Seite</a>.
+    </p>
+  </section>
+
 </Layout>
 
 <script>
