@@ -1,143 +1,106 @@
 ---
-import Layout from '../layout/layout.astro'
+import Layout from '../layout/layout.astro';
 
 const base = "/TaCoS-Trier";
 
-const tiers = [
+const sponsors = [
   {
-    tier: "Main Sponsors & Partners",
-    badge: "Gold / Main",
-    slots: [
-      { name: "Sponsorship Slot Available", note: "Prominent logo placement, welcome bag inclusion, talk slot" },
-      { name: "Sponsorship Slot Available", note: "Prominent logo placement, welcome bag inclusion, talk slot" },
-    ]
+    name: "Trier University",
+    desc: "Host university and faculty",
   },
   {
-    tier: "Supporting Sponsors",
-    badge: "Silver",
-    slots: [
-      { name: "Sponsorship Slot Available", note: "Logo on website and printed conference brochure" },
-      { name: "Sponsorship Slot Available", note: "Logo on website and printed conference brochure" },
-      { name: "Sponsorship Slot Available", note: "Logo on website and printed conference brochure" },
-    ]
+    name: "FSR CoDiPho Trier",
+    desc: "Fachschaft Computerlinguistik, Digital Humanities und Phonetik at Trier University",
   },
-  {
-    tier: "Academic & Institutional Supporters",
-    badge: "Academic",
-    slots: [
-      { name: "Trier University", note: "Host Institution & Faculty of Language, Literature and Media" },
-      { name: "Student Union / Fachschaft", note: "Co-organizing support and local logistics" },
-    ]
-  }
 ];
 ---
 
 <Layout
-  title="Sponsors & Partners | 36. TaCoS Trier 2027"
-  description="Become a sponsor of the 36th TaCoS Conference at Trier University and support student researchers in computational linguistics."
+  title="Sponsors | 36. TaCoS Trier 2027"
+  description="Information about sponsors and supporting TaCoS 2027 at Trier University."
 >
-  <div class="space-y-16 py-4">
+  <div class="space-y-12 py-6 max-w-4xl mx-auto">
 
     <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 text-xs font-semibold tracking-wide border border-red-200">
-        Partners & Funding
-      </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-        Our Generous Sponsors
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+        Sponsors
       </h1>
-      <p class="text-slate-600 text-base sm:text-lg">
-        TaCoS is made possible through the generous support of academic institutions and industry sponsors who believe in fostering the next generation of NLP talent.
+      <p class="text-slate-600 text-base max-w-xl mx-auto">
+        TaCoS 2027 is supported by Trier University, the student council CoDiPho, and our sponsors.
       </p>
     </div>
 
-    <!-- Sponsor Tiers -->
-    <section class="space-y-12 max-w-5xl mx-auto">
-      {tiers.map((section) => (
-        <div class="space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-            <h2 class="text-xl font-bold text-slate-900">{section.tier}</h2>
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
-              {section.badge}
-            </span>
-          </div>
+    <!-- Sponsor Logos and Placeholders -->
+    <section class="bg-white rounded-xl border border-slate-200 p-8 sm:p-10 space-y-8">
+      <div>
+        <h2 class="text-xs font-mono uppercase tracking-wider text-slate-500 mb-4 text-center">
+          Institutional Support
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {sponsors.map((item) => (
+            <div class="p-6 rounded-lg border border-slate-200 bg-slate-50/50 text-center flex flex-col justify-center min-h-28">
+              <span class="text-base font-bold text-slate-900">{item.name}</span>
+              <span class="text-xs text-slate-500 mt-1">{item.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {section.slots.map((item) => (
-              <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200 hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between text-center min-h-44">
-                <div class="flex items-center justify-center h-20 bg-slate-50 rounded-xl border border-dashed border-slate-200 mb-4">
-                  <span class="text-sm font-semibold text-slate-400">{item.name}</span>
-                </div>
-                <p class="text-xs text-slate-500 leading-relaxed">{item.note}</p>
-              </div>
-            ))}
+      <div>
+        <h2 class="text-xs font-mono uppercase tracking-wider text-slate-500 mb-4 text-center">
+          Conference Sponsors and Partners
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-6 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50 text-center flex flex-col items-center justify-center min-h-28">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-600 font-bold">Your Logo Here</span>
+            <span class="text-[11px] text-slate-400 mt-1">Sponsor slot available</span>
+          </div>
+          <div class="p-6 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50 text-center flex flex-col items-center justify-center min-h-28">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-600 font-bold">Your Logo Here</span>
+            <span class="text-[11px] text-slate-400 mt-1">Sponsor slot available</span>
+          </div>
+          <div class="p-6 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50 text-center flex flex-col items-center justify-center min-h-28">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-600 font-bold">Your Logo Here</span>
+            <span class="text-[11px] text-slate-400 mt-1">Sponsor slot available</span>
           </div>
         </div>
-      ))}
+      </div>
     </section>
 
-    <!-- Why Sponsor Card -->
-    <section class="max-w-4xl mx-auto bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-slate-200 space-y-6">
-      <div class="border-b border-slate-100 pb-4">
-        <h3 class="text-2xl font-bold text-slate-900">Why Support TaCoS 2027?</h3>
-        <p class="text-sm text-red-700 font-semibold tracking-wide uppercase mt-1">
-          Direct impact on student education & networking
-        </p>
-      </div>
+    <!-- Support Information -->
+    <section class="bg-white rounded-xl border border-slate-200 p-8 sm:p-10 space-y-4">
+      <h2 class="text-xl font-bold text-slate-900">
+        Supporting the Conference
+      </h2>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        TaCoS is a student conference. Sponsorship helps keep registration fees low for attending students, covers catering and breakfast, and funds local organization.
+      </p>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        Beyond financial support, in-kind contributions such as books, conference kits, or workshop equipment are also welcome.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-600 leading-relaxed">
-        <div class="space-y-2">
-          <h4 class="font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-red-700">✓</span> Affordable Attendance
-          </h4>
-          <p>
-            Your sponsorship keeps registration fees low and subsidizes accommodation and breakfast for student participants traveling from across Germany, Austria, and Switzerland.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <h4 class="font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-red-700">✓</span> Talent Recruitment
-          </h4>
-          <p>
-            Gain direct access to highly motivated students, graduates, and future PhD researchers specializing in Computational Linguistics, NLP, Machine Learning, and Digital Humanities.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <h4 class="font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-red-700">✓</span> Materials & Catering
-          </h4>
-          <p>
-            Support conference programs, badges, workshop technical equipment, and social dinners that foster lasting friendships and academic collaborations.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <h4 class="font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-red-700">✓</span> In-Kind Donations
-          </h4>
-          <p>
-            Beyond financial contributions, we warmly welcome in-kind donations such as computing credits, books, conference kits, and giveaways for participants.
-          </p>
-        </div>
-      </div>
-
-      <!-- Action Box -->
-      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <span class="block text-sm font-bold text-slate-900">Interested in becoming a sponsor?</span>
-          <span class="text-xs text-slate-500">Contact us at tacos@uni-trier.de to request our partnership dossier.</span>
+          <span class="text-sm font-semibold text-slate-900 block">Interested in supporting TaCoS 2027?</span>
+          <span class="text-xs text-slate-500">Reach out to the student team on LinkedIn or Instagram while our university inbox is being set up.</span>
         </div>
-        <div class="flex items-center gap-3 w-full sm:w-auto">
+        <div class="flex items-center gap-2">
           <a
-            href="mailto:tacos@uni-trier.de?subject=Sponsoring%20TaCoS%202027"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-red-700 text-white font-semibold text-sm hover:bg-red-800 transition"
+            href="https://www.linkedin.com/company/tacosconference/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-red-700 text-white font-medium text-xs hover:bg-red-600 transition-colors"
           >
-            <span>Contact Sponsorship Team</span>
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="https://www.instagram.com/tacosconference/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium text-xs hover:bg-slate-200 transition-colors"
+          >
+            Instagram
           </a>
         </div>
       </div>
