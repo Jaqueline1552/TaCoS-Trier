@@ -21,7 +21,7 @@ const ogImage = `${siteUrl}/images/logo.png`;
 ---
 
 <!doctype html>
-<html lang="en" class="h-full bg-slate-50">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/TaCoS-Trier/images/logo.png" />
@@ -48,7 +48,11 @@ const ogImage = `${siteUrl}/images/logo.png`;
 
     <title>{title}</title>
   </head>
-  <body class="min-h-full flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-red-100 selection:text-red-900 bg-grid-pattern">
+  <body class="min-h-full flex flex-col text-slate-800 antialiased selection:bg-red-100 selection:text-red-900">
+    <!-- Prototype Notice Banner -->
+    <div class="bg-amber-500 text-slate-950 text-xs font-medium px-4 py-1.5 text-center border-b border-amber-600/30">
+      <span>Early draft prototype for planning purposes. Content and schedules are under development. Conference dates: June 3–5, 2027.</span>
+    </div>
     <Navigation />
     <main class={fullWidth ? "w-full grow" : "max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 grow"}>
       <slot />

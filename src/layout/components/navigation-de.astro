@@ -17,17 +17,16 @@ const germanPath = isGerman
 
 const navItems = [
   { href: `${base}/de`, label: "Home" },
-  { href: `${base}/de/team`, label: "Team" },
-  { href: `${base}/de/speakers`, label: "Referent*innen" },
   { href: `${base}/de/schedule`, label: "Programm" },
-  { href: `${base}/de/registration`, label: "Teilnahme" },
-  { href: `${base}/de/map`, label: "Karten" },
+  { href: `${base}/de/speakers`, label: "Keynotes" },
+  { href: `${base}/de/registration`, label: "Anmeldung" },
   { href: `${base}/de/sponsors`, label: "Sponsoren" },
-  { href: `${base}/de/contact`, label: "Kontakt" },
+  { href: `${base}/de/map`, label: "Campusplan" },
+  { href: `${base}/de/team`, label: "Team" },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+<header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       
@@ -122,7 +121,7 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu-de" class="hidden lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-md px-4 pt-3 pb-5 shadow-lg">
+  <div id="mobile-menu-de" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 shadow-lg">
     <div class="flex flex-col gap-1">
       {navItems.map((item) => {
         const isActive = currentPath === item.href || (item.href === `${base}/de` && (currentPath === `${base}/de` || currentPath === `${base}/de/`));

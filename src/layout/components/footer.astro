@@ -6,7 +6,7 @@ const base = "/TaCoS-Trier";
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       
-      <!-- Brand & Description -->
+      <!-- Brand and Description -->
       <div class="md:col-span-2 space-y-4">
         <div class="flex items-center gap-3">
           <img
@@ -20,7 +20,7 @@ const base = "/TaCoS-Trier";
           </div>
         </div>
         <p class="text-sm text-slate-600 max-w-md leading-relaxed">
-          The annual conference for students of Computational Linguistics and neighboring fields, organized by students for students. Hosted at Trier University from June 3rd to 5th, 2027.
+          The annual conference for students of Computational Linguistics, NLP, and related fields. Hosted at Trier University from June 3rd to 5th, 2027.
         </p>
         <div class="flex items-center gap-4 pt-2">
           <a
@@ -45,15 +45,6 @@ const base = "/TaCoS-Trier";
               <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
             </svg>
           </a>
-          <a
-            href="mailto:tacos@uni-trier.de"
-            class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-red-700 hover:bg-red-50 transition-colors"
-            aria-label="Email the organizers"
-          >
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </a>
         </div>
       </div>
 
@@ -61,17 +52,18 @@ const base = "/TaCoS-Trier";
       <div>
         <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-900 mb-3">Conference</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href={`${base}/team`} class="hover:text-red-700 transition">Team</a></li>
-          <li><a href={`${base}/speakers`} class="hover:text-red-700 transition">Speakers</a></li>
           <li><a href={`${base}/schedule`} class="hover:text-red-700 transition">Schedule</a></li>
+          <li><a href={`${base}/speakers`} class="hover:text-red-700 transition">Speakers</a></li>
           <li><a href={`${base}/registration`} class="hover:text-red-700 transition">Registration</a></li>
-          <li><a href={`${base}/map`} class="hover:text-red-700 transition">Campus Maps</a></li>
+          <li><a href={`${base}/sponsors`} class="hover:text-red-700 transition">Sponsors</a></li>
+          <li><a href={`${base}/map`} class="hover:text-red-700 transition">Campus Map</a></li>
+          <li><a href={`${base}/team`} class="hover:text-red-700 transition">Team</a></li>
         </ul>
       </div>
 
-      <!-- University & Contact -->
+      <!-- University and External Links -->
       <div>
-        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-900 mb-3">Host University</h4>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-900 mb-3">Links</h4>
         <ul class="space-y-2 text-sm">
           <li>
             <a href="https://www.uni-trier.de/" target="_blank" rel="noopener noreferrer" class="hover:text-red-700 transition font-medium">
@@ -88,11 +80,6 @@ const base = "/TaCoS-Trier";
               Sponsorship Information
             </a>
           </li>
-          <li>
-            <a href="mailto:tacos@uni-trier.de" class="text-red-700 hover:text-red-800 font-medium">
-              tacos@uni-trier.de
-            </a>
-          </li>
         </ul>
       </div>
 
@@ -100,8 +87,8 @@ const base = "/TaCoS-Trier";
 
     <!-- Bottom Copyright -->
     <div class="mt-8 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <p>&copy; {new Date().getFullYear()} TaCoS Trier 2027. All rights reserved.</p>
-      <p>Organized with passion by students of Trier University.</p>
+      <p>© {new Date().getFullYear()} TaCoS Trier 2027. All rights reserved.</p>
+      <p>Organized by CoDiPho and students of Trier University.</p>
     </div>
   </div>
 </footer>
