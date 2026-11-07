@@ -5,47 +5,68 @@ const campusMapUrl = "https://www.uni-trier.de/fileadmin/organisation/Presse/Lag
 ---
 
 <Layout
-  title="Lagepläne | 36. TaCoS Trier 2027"
-  description="Lagepläne, interaktive Karte, Raumübersichten und Anreiseinformationen für die 36. TaCoS an der Universität Trier."
+  title="Campusplan | 36. TaCoS Trier 2027"
+  description="Campusplan, interaktive Karte und Anreiseinformationen für die 36. TaCoS an der Universität Trier."
 >
-  <div class="space-y-16 py-4">
+  <div class="space-y-12 py-4 max-w-5xl mx-auto">
 
     <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto space-y-3">
+    <div class="text-center space-y-3">
       <h1 class="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
         Campusplan
       </h1>
-      <p class="text-slate-600 text-base sm:text-lg">
-        Die TaCoS 2027 findet auf dem <strong>Campus I der Universität Trier</strong> statt. Lageplan und Raumübersichten.
+      <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
+        Die TaCoS 2027 findet auf dem <strong>Campus I der Universität Trier</strong> statt (Universitätsring 15, 54296 Trier).
       </p>
     </div>
 
-    <!-- Interactive OpenStreetMap Embed -->
-    <section class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden">
-      <div class="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 inline-block mb-1">
-            Live-Karte
-          </span>
-          <h2 class="text-xl font-bold text-slate-900">Interaktive Campus-Karte</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Campus I der Universität Trier und Umgebung</p>
+    <!-- Anreise -->
+    <section class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+      <h2 class="text-lg font-bold text-slate-900 mb-1">Anreise zu Campus I</h2>
+      <p class="text-xs text-slate-500 mb-6">Öffentlicher Nahverkehr ab Trier Hauptbahnhof und Stadtzentrum</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+        <div class="space-y-2">
+          <h3 class="font-bold text-slate-900">Mit der Bahn</h3>
+          <p class="text-slate-600 leading-relaxed text-xs sm:text-sm">
+            Zielbahnhof ist Trier Hbf mit regelmäßigen Regionalverbindungen nach Koblenz, Saarbrücken, Mannheim und Luxemburg.
+          </p>
+          <div class="text-xs text-slate-500">Zielbahnhof: Trier Hbf</div>
         </div>
-        <div class="flex items-center gap-2">
-          <a
-            href="https://www.openstreetmap.org/?mlat=49.7460&mlon=6.6865#map=16/49.7460/6.6865"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition"
-          >
-            <span>In OpenStreetMap öffnen</span>
-            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+
+        <div class="space-y-2">
+          <h3 class="font-bold text-slate-900">Mit dem Bus</h3>
+          <ul class="text-xs sm:text-sm text-slate-600 space-y-1">
+            <li><strong>Ab Hauptbahnhof (Hbf):</strong> Linien <strong>3</strong> und <strong>13</strong></li>
+            <li><strong>Ab Porta Nigra:</strong> Linien <strong>4</strong> und <strong>14</strong></li>
+          </ul>
+          <p class="text-xs text-slate-500 pt-1">
+            Alle Linien fahren direkt zur Haltestelle <em>„Universität“</em> (Fahrzeit ca. 15–20 Minuten).
+          </p>
         </div>
       </div>
+    </section>
 
-      <!-- Responsive OSM iframe container -->
+    <!-- Interaktive Karte -->
+    <section class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Interaktive Karte</h2>
+          <p class="text-xs text-slate-500">Campus I und Umgebung</p>
+        </div>
+        <a
+          href="https://www.openstreetmap.org/?mlat=49.7460&mlon=6.6865#map=16/49.7460/6.6865"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-semibold text-slate-700 hover:text-red-700 inline-flex items-center gap-1 transition"
+        >
+          <span>In OpenStreetMap öffnen</span>
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
       <div class="w-full h-80 sm:h-96 relative bg-slate-100">
         <iframe
           title="Universität Trier Campus I Karte"
@@ -56,108 +77,40 @@ const campusMapUrl = "https://www.uni-trier.de/fileadmin/organisation/Presse/Lag
           src="https://www.openstreetmap.org/export/embed.html?bbox=6.6660%2C49.7360%2C6.7060%2C49.7560&amp;layer=mapnik&amp;marker=49.7460%2C6.6865"
         ></iframe>
       </div>
-      <div class="p-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
-        <span>📍 Markierung zeigt <strong>Campus I, Universitätsring 15, 54296 Trier</strong></span>
+
+      <div class="px-6 py-3 bg-slate-50/50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+        <span>Adresse: Campus I, Universitätsring 15, 54296 Trier</span>
         <span>Koordinaten: 49.7460° N, 6.6865° O</span>
       </div>
     </section>
 
-    <!-- Transit Information Box -->
-    <section class="max-w-5xl mx-auto bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-slate-200">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-3 mb-4">
-        <div class="h-10 w-10 rounded-xl bg-red-50 text-red-700 flex items-center justify-center">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-slate-900">Anreise zu Campus I</h3>
-          <span class="text-xs text-slate-500">Öffentlicher Nahverkehr ab Trier Hauptbahnhof</span>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
-        <div class="bg-slate-50 p-5 rounded-xl flex flex-col justify-between">
-          <div>
-            <span class="font-bold text-slate-900 block mb-1">🚆 Mit der Bahn</span>
-            <p class="text-xs leading-relaxed">
-              Zielbahnhof ist Trier Hbf mit regelmäßigen Regionalverbindungen nach Koblenz, Saarbrücken, Mannheim und Luxemburg.
-            </p>
-          </div>
-          <span class="text-[11px] font-mono text-slate-400 mt-3 block">Zielbahnhof: Trier Hbf</span>
-        </div>
-
-        <div class="bg-slate-50 p-5 rounded-xl flex flex-col justify-between">
-          <div>
-            <span class="font-bold text-slate-900 block mb-1">🚌 Mit dem Bus zu Campus I</span>
-            <ul class="text-xs space-y-1.5 mt-2">
-              <li>
-                <strong>Ab Trier Hauptbahnhof (Hbf):</strong> Linien <strong>3</strong> und <strong>13</strong>
-              </li>
-              <li>
-                <strong>Ab Porta Nigra:</strong> Linien <strong>4</strong> und <strong>14</strong>
-              </li>
-            </ul>
-            <p class="text-xs text-slate-500 mt-2">
-              Alle Linien fahren direkt zur Haltestelle <em>„Universität“</em> (Fahrzeit ca. 15–20 Minuten).
-            </p>
-          </div>
-          <span class="text-[11px] font-mono text-slate-400 mt-3 block">Ziel: Haltestelle „Universität“</span>
-        </div>
-      </div>
-    </section>
-
     <!-- Campus I Lageplan -->
-    <section class="max-w-5xl mx-auto space-y-6">
-      <div class="text-center space-y-2">
-        <h2 class="text-2xl font-bold text-slate-900">Campus I Lageplan</h2>
-        <p class="text-xs sm:text-sm text-slate-500">Offizieller Lageplan bereitgestellt von der Universitätsverwaltung Trier</p>
+    <section class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Campus I Lageplan</h2>
+          <p class="text-xs text-slate-500">Offizieller Lageplan bereitgestellt von der Universitätsverwaltung Trier</p>
+        </div>
+        <a
+          href={campusMapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-semibold text-slate-700 hover:text-red-700 inline-flex items-center gap-1 transition"
+        >
+          <span>Lageplan öffnen (SVG)</span>
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
-        <div class="p-6 border-b border-slate-100 flex items-start justify-between gap-4">
-          <div>
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 inline-block mb-1">
-              Hauptort
-            </span>
-            <h3 class="text-lg font-bold text-slate-900">Campus I – Übersicht</h3>
-            <p class="text-xs text-slate-500 mt-1">Veranstaltungsort für Vorträge, Workshops und Räumlichkeiten der TaCoS 2027.</p>
-          </div>
-          <a
-            href={campusMapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="shrink-0 p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-red-700 hover:bg-red-50 transition"
-            title="Vollbild in neuem Tab öffnen"
-          >
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="p-6 bg-slate-50 flex items-center justify-center min-h-80">
-          <img
-            src={campusMapUrl}
-            alt="Universität Trier Campus I Lageplan"
-            class="max-h-[500px] w-auto object-contain rounded-lg"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="p-4 bg-white border-t border-slate-100 text-right">
-          <a
-            href={campusMapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-xs font-semibold text-red-700 hover:text-red-800 inline-flex items-center gap-1"
-          >
-            <span>Vollständigen Lageplan öffnen</span>
-            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
+      <div class="p-6 bg-slate-50/50 flex items-center justify-center">
+        <img
+          src={campusMapUrl}
+          alt="Universität Trier Campus I Lageplan"
+          class="max-h-[520px] w-auto object-contain rounded-lg"
+          loading="lazy"
+        />
       </div>
     </section>
 
